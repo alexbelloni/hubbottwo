@@ -10,8 +10,8 @@ Hubbottwo takes action in any mention about the acronym "API".
 
 Example on Slack channel:
 
-    user> Does anyone know some interesting NASA API? 
-    hubbottwo> (Does anyone know some interesting NASA API?) Me! I know lots of awesome NASA websites and APIs. Reply me "websites"
+    user> Some interesting NASA API? 
+    hubbottwo> (Some interesting NASA API?) Me! I know lots of awesome NASA websites and APIs. Reply me "websites"
 
 
 ### 2) Give suggestions of awesome NASA websites
