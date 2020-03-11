@@ -24,17 +24,17 @@ function getThePictureOfTheDay(res, robot, day, lastAttempt) {
       .header('accept', 'application/json')
       .get()(function (err, resp, body) {
         if (err) {
-          res.send("error requesting picture data")
+          res.reply("error requesting picture data")
           return
         }
         const data = JSON.parse(body);
-        if(data.code && !lastAttempt){
-          const tomorrow = new Date(day.setDate(day.getDate() -1));
-          getThePictureOfTheDay(res, robot, tomorrow, true);
+        if(data.code && !lastAttempt){ // picture is not ready today -> {"code":500,"msg":"Internal Service Error","service_version":"v1"}
+          const yesterday = new Date(day.setDate(day.getDate() -1));
+          getThePictureOfTheDay(res, robot, yesterday, true);
           return
         }
         const info = !data ? 'no data' : data.title ? '' : url.concat(' ',body);
-        res.send(`${data.title} by ${data.copyright}: ${data.url} ${info}`);
+        res.reply(`"${data.title}" by ${data.copyright}: ${data.url} ${info}`);
       })
 }
 
