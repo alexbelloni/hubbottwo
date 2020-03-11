@@ -29,7 +29,8 @@ function getThePictureOfTheDay(res, robot, day, lastAttempt) {
         }
         const data = JSON.parse(body);
         if(data.code && !lastAttempt){
-          getThePictureOfTheDay(res, robot, day.addDate(-1), true);
+          const tomorrow = new Date(day.setDate(day.getDate() -1));
+          getThePictureOfTheDay(res, robot, tomorrow, true);
           return
         }
         const info = !data ? 'no data' : data.title ? '' : url.concat(' ',body);
