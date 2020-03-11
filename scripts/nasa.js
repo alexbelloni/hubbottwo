@@ -32,10 +32,10 @@ function sendWebsites(res, quantity){
     "ncdc.noaa.gov",
     "nodis3.gsfc.nasa.gov",
     "ntrs.nasa.gov",
-    "resource-telescope.netlify.com",
+    "resource-telescope.web.app",
     "soundcloud.com/nasa",
-    "observablehq collection",
-    "blockbuilder nasa"]
+    "observablehq.com/collection/@justingosses/nasa",
+    "blockbuilder.org/search?text=nasa"]
     const choices = [];
     for(let i=0; i<(quantity <= nasaWebsites.length ? quantity : nasaWebsites.length); ++i ){
       choices.push(res.random(nasaWebsites));
