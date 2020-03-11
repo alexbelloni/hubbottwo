@@ -1,6 +1,6 @@
 # Slackbot hubbottwo
 
-hubbottwo is a Slack chat bot deployed on [Heroku][heroku].
+hubbottwo is a Slack chat bot, which gives us NASA information.
 
 ## What can hubbottwo do?
 
@@ -64,8 +64,8 @@ You can start hubbottwo locally by running:
 
 ## Deployment
 
-    % heroku create --stack cedar
-    % git push heroku master
+coding on GitHub  
+deployment on Heroku
 
 ## Restart the bot
 
