@@ -20,7 +20,8 @@ module.exports = (robot) => {
 
 function getThePictureOfTheDay(res, robot) {
     const today = new Date();
-    robot.http(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`)
+    const url = `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+    robot.http(url)
       .header('accept', 'application/json')
       .get()(function (err, resp, body) {
         if (err) {
@@ -28,7 +29,7 @@ function getThePictureOfTheDay(res, robot) {
           return
         }
         const data = JSON.parse(body);
-        const info = !data ? 'no data' : data.title ? '' : body;
+        const info = !data ? 'no data' : data.title ? '' : url.concat(' ',body);
         res.send(`${data.title} by ${data.copyright}: ${data.url} ${info}`);
       })
 }
