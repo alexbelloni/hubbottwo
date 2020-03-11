@@ -15,12 +15,11 @@ module.exports = (robot) => {
   }
 
   const _robot = robot
-  robot.respond("/picture of the day/i", (res) =>  getThePictureOfTheDay(res, _robot) )
+  robot.respond("/picture of the day/i", (res) =>  getThePictureOfTheDay(res, _robot, new Date()) )
 }
 
-function getThePictureOfTheDay(res, robot) {
-    const today = new Date();
-    const url = `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`
+function getThePictureOfTheDay(res, robot, day, lastAttempt) {
+    const url = `https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${day.getFullYear()}-${day.getMonth() + 1}-${day.getDate()}`
     robot.http(url)
       .header('accept', 'application/json')
       .get()(function (err, resp, body) {
@@ -29,6 +28,10 @@ function getThePictureOfTheDay(res, robot) {
           return
         }
         const data = JSON.parse(body);
+        if(data.code && !lastAttempt){
+          getThePictureOfTheDay(res, robot, day.addDate(-1), true);
+          return
+        }
         const info = !data ? 'no data' : data.title ? '' : url.concat(' ',body);
         res.send(`${data.title} by ${data.copyright}: ${data.url} ${info}`);
       })
