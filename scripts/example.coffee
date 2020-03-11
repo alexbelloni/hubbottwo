@@ -19,25 +19,11 @@ module.exports = (robot) ->
   #   else
   #     res.reply "Opening #{doorType} doors"
   #
-    robot.hear /API/i, (res) ->
-     res.send "#{res.message.text}? I should know about APIs..."
 
-    famousMessages = ['"Houston, we have a problem"','"That is one small step for man, one giant leap for mankind."']
-    robot.respond /famous message/i, (res) ->
-      res.send res.random famousMessages
 
-    robot.respond /role/i, (res) ->
-      res.send "Okay"
-      return
-      robot.http("https://www.mocky.io/v2/5185415ba171ea3a00704eed")
-        .get() (err, res, body) ->
-          res.send "Okay"
-          # if err
-          #   res.send "Encountered an error :( #{err}"
-          #   return
-            
-          # data = JSON.parse body
-          # res.send data.hello
+
+
+
 
    robot.hear /I like pie/i, (res) ->
      res.emote "makes a freshly baked pie"
