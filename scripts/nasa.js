@@ -1,13 +1,13 @@
 module.exports = (robot) => {
   robot.hear(/API/i, (res) => {
-    res.send(`${res.message.text}? I'm working to be an expert in NASA APIs. Reply me "websites", for instance.`);
+    res.send(`(${res.message.text}?) Me! I know lots of awesome NASA websites and APIs. Reply me "websites"`);
     return
   })
 
   robot.respond(/websites/i, (res) => sendWebsites(res, 2));
 
   const _robot = robot
-  robot.respond(/picture of the day/i, (res) => sendThePictureOfTheDay(res, _robot, new Date()));
+  robot.respond(/picture/i, (res) => sendThePictureOfTheDay(res, _robot, new Date()));
 }
 
 function sendWebsites(res, quantity){
@@ -40,7 +40,7 @@ function sendWebsites(res, quantity){
     for(let i=0; i<(quantity <= nasaWebsites.length ? quantity : nasaWebsites.length); ++i ){
       choices.push(res.random(nasaWebsites));
     }
-    res.send(`My two suggestions: ${choices.join(", ")}`);
+    res.send(`My two suggestions are ${choices.join(" and ")}`);
     return
 }
 
