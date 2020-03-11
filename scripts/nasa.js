@@ -1,11 +1,11 @@
 module.exports = (robot) => {
-  robot.hear("API", (res) => {
+  robot.hear("/API/i", (res) => {
     res.send(`${res.message.text}? I should know about APIs...`);
     return
   })
 
   const famousMessages = ['"Houston, we have a problem"', '"That is one small step for man, one giant leap for mankind."']
-  robot.hear("message", (res) => {
+  robot.respond("/famous message/i", (res) => {
     res.send(res.random(famousMessages));
     return
   })
@@ -15,7 +15,7 @@ module.exports = (robot) => {
   }
 
   const _robot = robot
-  robot.respond("picture of the day", (res) =>  getThePictureOfTheDay(res, _robot) )
+  robot.respond("/picture of the day/i", (res) =>  getThePictureOfTheDay(res, _robot) )
 }
 
 function getThePictureOfTheDay(res, robot) {
