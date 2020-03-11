@@ -24,11 +24,12 @@ function getThePictureOfTheDay(res, robot) {
       .header('accept', 'application/json')
       .get()(function (err, resp, body) {
         if (err) {
-          res.send("error")
+          res.send("error requesting picture data")
           return
         }
         const data = JSON.parse(body);
-        res.send(`${data.title} by ${data.copyright}: ${data.url}`);
+        const info = !data ? 'no data' : data.title ? '' : body;
+        res.send(`${data.title} by ${data.copyright}: ${data.url} ${info}`);
       })
 }
 
