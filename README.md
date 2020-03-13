@@ -43,14 +43,14 @@ The chatbot searches for the picture of the day on NASA APOD API.
 ✔ Include an image in the response in addition to text
 
 ## Technical hurdles and new knowledge
-### hurdles
+### Hurdles
 Follow a configuration guide based on old versions of Slack pages  
 Understand a new coding syntax (CoffeeScript)  
 Fix the token environment variable in Windows (; issue) 
-### new things 
-hubot framework  
-how to connect a chatbot to slack  
-new hubot external packages
+### New things 
+Hubot framework  
+How to connect a chatbot to slack  
+Hubot external packages
 
 ## Running hubbottwo Locally
 
@@ -64,8 +64,8 @@ You can start hubbottwo locally by running:
 
 ## Deployment
 
-coding on GitHub  
-deployment on Heroku
+Coding on GitHub  
+Deployment on Heroku
 
 ## Restart the bot
 
