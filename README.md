@@ -1,6 +1,9 @@
 # Slackbot hubbottwo
 
-hubbottwo is a Slack chat bot, which gives us NASA information.
+hubbottwo is a Slack chat bot, which gives us NASA information.  
+  
+Project description: Using the provided scaffolding, build a basic Slackbot that responds to user input and run it locally from your machine in the class Slack channel.   
+Personal channel: https://nasahubbot2.slack.com
 
 ## What can hubbottwo do?
 
